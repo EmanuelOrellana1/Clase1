@@ -5,13 +5,13 @@
  */
 package com.unab.edu.Entidades;
 
-//import lombok.Data;
+import lombok.Data;
 
 /**
  *
  * @author orell
  */
-//@Data
+@Data
 public class Persona {
     
    private int idPersona;
@@ -19,7 +19,11 @@ public class Persona {
    private String Apellido;
    private int Edad;
    private String Sexo;
+   
+   
 
+    
+    
    
     
 }
