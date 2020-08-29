@@ -53,7 +53,7 @@ public class crudPersona extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTabbedPane1 = new javax.swing.JTabbedPane();
+        tbMostrar = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         txtID = new javax.swing.JTextField();
         txtNombre = new javax.swing.JTextField();
@@ -144,7 +144,7 @@ public class crudPersona extends javax.swing.JFrame {
                         .addComponent(btnGuardar)
                         .addGap(47, 47, 47)
                         .addComponent(btnEliminar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
                         .addComponent(btnActualizarDatos)
                         .addGap(35, 35, 35)
                         .addComponent(btnProbarConexion))
@@ -190,7 +190,7 @@ public class crudPersona extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jTabbedPane1.addTab("Operaciones CRUD", jPanel1);
+        tbMostrar.addTab("Operaciones CRUD", jPanel1);
 
         tb_persona.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -203,21 +203,28 @@ public class crudPersona extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tb_persona.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tb_personaMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(tb_persona);
 
         jTabbedPane2.addTab("tab1", jScrollPane2);
 
-        jTabbedPane1.addTab("Mostrar Datos", jTabbedPane2);
+        tbMostrar.addTab("Mostrar Datos", jTabbedPane2);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(tbMostrar, javax.swing.GroupLayout.PREFERRED_SIZE, 545, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 22, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 415, Short.MAX_VALUE)
+            .addComponent(tbMostrar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 415, Short.MAX_VALUE)
         );
 
         pack();
@@ -262,6 +269,24 @@ public class crudPersona extends javax.swing.JFrame {
         Personas.ActualizarPersona(Persona);
         MostrarTablaPersona();
     }//GEN-LAST:event_btnActualizarDatosActionPerformed
+
+    private void tb_personaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tb_personaMouseClicked
+    tbMostrar.setSelectedIndex(tbMostrar.indexOfComponent(jPanel1));
+    
+    int fila = tb_persona.getSelectedRow();
+    
+    String ID = String.valueOf(tb_persona.getValueAt(fila , 0 ));
+    String nombre = String.valueOf(tb_persona.getValueAt(fila, 1));
+        String apellido = String.valueOf(tb_persona.getValueAt(fila, 2));
+        String edad = String.valueOf(tb_persona.getValueAt(fila, 3));
+        String sexo = String.valueOf(tb_persona.getValueAt(fila, 4));
+        
+        txtID.setText(ID);
+        txtNombre.setText(nombre);
+        txtSexo.setText(sexo);
+        txtApellido.setText(apellido);
+        txtEdad.setText(edad);
+    }//GEN-LAST:event_tb_personaMouseClicked
 
     /**
      * @param args the command line arguments
@@ -310,8 +335,8 @@ public class crudPersona extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTabbedPane jTabbedPane2;
+    private javax.swing.JTabbedPane tbMostrar;
     private javax.swing.JTable tb_persona;
     private javax.swing.JTextField txtApellido;
     private javax.swing.JTextField txtEdad;

@@ -35,6 +35,7 @@ public class ClsPersona {
                 persona.setSexo(resultadoDeConsulta.getString("Sexo"));
                 Personas.add(persona);
             }
+            conectar.close();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
@@ -50,6 +51,7 @@ public class ClsPersona {
             Statement.setString("PSexo", Per.getSexo());
             Statement.execute();
             JOptionPane.showMessageDialog(null, "PERSONA GUARDADA");
+            conectar.close();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
@@ -61,6 +63,7 @@ public class ClsPersona {
             Statement.setInt("PIdPersonas", Per.getIdPersona());
             Statement.execute();
             JOptionPane.showMessageDialog(null, "PERSONA ELIMINADA");
+            conectar.close();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
@@ -75,6 +78,7 @@ public class ClsPersona {
             Statement.setInt("PEdad", Per.getEdad());
             Statement.setString("PSexo", Per.getSexo());
             Statement.execute();
+            conectar.close();
             JOptionPane.showMessageDialog(null, "PERSONA ACTUALIZADA");
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
