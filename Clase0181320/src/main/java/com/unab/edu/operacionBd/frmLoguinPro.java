@@ -19,6 +19,7 @@ public class frmLoguinPro extends javax.swing.JFrame {
      */
     public frmLoguinPro() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -94,7 +95,7 @@ public class frmLoguinPro extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnENTRARActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnENTRARActionPerformed
-      String user = txtUSUARIO.getText();
+        String user = txtUSUARIO.getText();
         String pass = String.valueOf(txtCONTRASEÑA.getText());
 
         if (!user.isEmpty() && !pass.isEmpty()) {
