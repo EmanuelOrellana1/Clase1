@@ -5,22 +5,20 @@
  */
 package com.unab.edu.operacionBd;
 
-import com.unab.edu.DAO.ClsEstudiante;
+import com.unab.edu.DAO.ClsProfesor;
 import javax.swing.JOptionPane;
-import javax.swing.JTextField;
 
 /**
  *
  * @author orell
  */
-public class frmLogin extends javax.swing.JFrame {
+public class frmLoguinPro extends javax.swing.JFrame {
 
     /**
-     * Creates new form frmLogin
+     * Creates new form frmLoguinPro
      */
-    public frmLogin() {
+    public frmLoguinPro() {
         initComponents();
-        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -32,29 +30,29 @@ public class frmLogin extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        txtUsuario = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        txtPassword = new javax.swing.JPasswordField();
-        btnEntrar = new javax.swing.JButton();
+        txtUSUARIO = new javax.swing.JTextField();
+        txtCONTRASEÑA = new javax.swing.JTextField();
+        btnENTRAR = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        txtUsuario.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-
         jLabel1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jLabel1.setText("Usuario");
+        jLabel1.setText("USUARIO");
 
         jLabel2.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jLabel2.setText("Password");
+        jLabel2.setText("CONTRASEÑA");
 
-        txtPassword.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        txtUSUARIO.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
 
-        btnEntrar.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        btnEntrar.setText("Entrar");
-        btnEntrar.addActionListener(new java.awt.event.ActionListener() {
+        txtCONTRASEÑA.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+
+        btnENTRAR.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        btnENTRAR.setText("ENTRAR");
+        btnENTRAR.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEntrarActionPerformed(evt);
+                btnENTRARActionPerformed(evt);
             }
         });
 
@@ -65,45 +63,44 @@ public class frmLogin extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(44, 44, 44)
+                        .addGap(25, 25, 25)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, 264, Short.MAX_VALUE)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtPassword)))
+                            .addComponent(txtUSUARIO, javax.swing.GroupLayout.DEFAULT_SIZE, 269, Short.MAX_VALUE)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtCONTRASEÑA)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(138, 138, 138)
-                        .addComponent(btnEntrar)))
-                .addContainerGap(92, Short.MAX_VALUE))
+                        .addGap(141, 141, 141)
+                        .addComponent(btnENTRAR)))
+                .addContainerGap(106, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(27, 27, 27)
+                .addGap(26, 26, 26)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(62, 62, 62)
-                .addComponent(jLabel2)
                 .addGap(18, 18, 18)
-                .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
-                .addComponent(btnEntrar)
-                .addGap(38, 38, 38))
+                .addComponent(txtUSUARIO, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(39, 39, 39)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txtCONTRASEÑA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
+                .addComponent(btnENTRAR)
+                .addGap(52, 52, 52))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
-
-        String user = txtUsuario.getText();
-        String pass = String.valueOf(txtPassword.getText());
+    private void btnENTRARActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnENTRARActionPerformed
+      String user = txtUSUARIO.getText();
+        String pass = String.valueOf(txtCONTRASEÑA.getText());
 
         if (!user.isEmpty() && !pass.isEmpty()) {
 
-            ClsEstudiante est = new ClsEstudiante();
-            var variablecontenedoraconsultaBd = est.LoguinEstudiante(user, pass);
+            ClsProfesor pro = new ClsProfesor();
+            var variablecontenedoraconsultaBd = pro.LoguinProfesor(user, pass);
 
             if (variablecontenedoraconsultaBd == true) {
                 JOptionPane.showMessageDialog(null, "Welcome");
@@ -114,9 +111,7 @@ public class frmLogin extends javax.swing.JFrame {
         } else {
             JOptionPane.showMessageDialog(null, "Llena los Datos");
         }
-
-
-    }//GEN-LAST:event_btnEntrarActionPerformed
+    }//GEN-LAST:event_btnENTRARActionPerformed
 
     /**
      * @param args the command line arguments
@@ -135,29 +130,29 @@ public class frmLogin extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(frmLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmLoguinPro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(frmLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmLoguinPro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(frmLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmLoguinPro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(frmLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmLoguinPro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new frmLogin().setVisible(true);
+                new frmLoguinPro().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnEntrar;
+    private javax.swing.JButton btnENTRAR;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JPasswordField txtPassword;
-    private javax.swing.JTextField txtUsuario;
+    private javax.swing.JTextField txtCONTRASEÑA;
+    private javax.swing.JTextField txtUSUARIO;
     // End of variables declaration//GEN-END:variables
 }
