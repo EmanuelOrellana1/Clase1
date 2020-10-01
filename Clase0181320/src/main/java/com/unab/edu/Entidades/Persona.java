@@ -5,6 +5,7 @@
  */
 package com.unab.edu.Entidades;
 
+import java.util.Date;
 import lombok.Data;
 
 /**
@@ -19,7 +20,7 @@ public class Persona {
    protected String Apellido;
    protected int Edad;
    protected String Sexo;
-   
+   protected Date Fecha;
    
 
     
