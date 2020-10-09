@@ -11,6 +11,7 @@ import com.unab.edu.Entidades.Estudiante;
 import com.unab.edu.Entidades.Persona;
 import java.util.ArrayList;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -23,15 +24,16 @@ public class CrudEstudiante extends javax.swing.JFrame {
      * Creates new form CrudEstudiante
      */
     String valueMember[];
-    int contador = 0;
+    int contador = 1;
 
     public void displayMenber() {
 
         DefaultComboBoxModel cbdefault = new DefaultComboBoxModel();
         ClsPersona ClasePersona = new ClsPersona();
         ArrayList<Persona> Personas = ClasePersona.MostrarPersona();
-        valueMember = new String[Personas.size()];
+        valueMember = new String[Personas.size() + 1];
         String filas[] = new String[7];
+        cbdefault.addElement("");
         for (var IterarDatosPersona : Personas) {
             filas[0] = String.valueOf(IterarDatosPersona.getIdPersona());
             filas[1] = IterarDatosPersona.getNombre();
@@ -84,7 +86,6 @@ public class CrudEstudiante extends javax.swing.JFrame {
 //
 //        tbTablita.setModel(ModeloTabla);
 //    }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -313,29 +314,41 @@ public class CrudEstudiante extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-        ClsEstudiante Estudiantes = new ClsEstudiante();
-        Estudiante estudiante = new Estudiante();
-        estudiante.setMatricula(Integer.parseInt(txtMatricula.getText()));
+        try {
+            ClsEstudiante Estudiantes = new ClsEstudiante();
+            Estudiante estudiante = new Estudiante();
+            estudiante.setMatricula(Integer.parseInt(txtMatricula.getText()));
 //        estudiante.setIdPersona(Integer.parseInt(txtIdPersona.getText()));
-        estudiante.setIdPersona(Integer.parseInt(valueMember[cbPersonas.getSelectedIndex()]));
-        estudiante.setUsu(txtUsuario.getText());
-        estudiante.setPass(txtPassword.getText());
-        estudiante.setNie(Integer.parseInt(txtNie.getText()));
-        Estudiantes.AgregarEstudiante(estudiante);
-        MostrarTablaEstudiante();
+            estudiante.setIdPersona(Integer.parseInt(valueMember[cbPersonas.getSelectedIndex()]));
+            estudiante.setUsu(txtUsuario.getText());
+            estudiante.setPass(txtPassword.getText());
+            estudiante.setNie(Integer.parseInt(txtNie.getText()));
+            Estudiantes.AgregarEstudiante(estudiante);
+            MostrarTablaEstudiante();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, " Eror verifica los datos");
+        }
+
 
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        ClsEstudiante Estudiantes = new ClsEstudiante();
+        try {
+            ClsEstudiante Estudiantes = new ClsEstudiante();
         Estudiante estudiante = new Estudiante();
         estudiante.setIdEsudiante(Integer.parseInt(txtIdEstudiante.getText()));
         Estudiantes.BorrarEstudiante(estudiante);
         MostrarTablaEstudiante();
+        } catch (Exception e) {
+        }
+        
+
+
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
-        ClsEstudiante Estudiantes = new ClsEstudiante();
+        try {
+            ClsEstudiante Estudiantes = new ClsEstudiante();
         Estudiante estudiante = new Estudiante();
         estudiante.setIdEsudiante(Integer.parseInt(txtIdEstudiante.getText()));
         estudiante.setMatricula(Integer.parseInt(txtMatricula.getText()));
@@ -345,6 +358,10 @@ public class CrudEstudiante extends javax.swing.JFrame {
         estudiante.setNie(Integer.parseInt(txtNie.getText()));
         Estudiantes.ActualizarEsudiante(estudiante);
         MostrarTablaEstudiante();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, " Eror verifica los datos");
+        }
+        
     }//GEN-LAST:event_btnActualizarActionPerformed
 
     private void tb_mostarestudianteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tb_mostarestudianteMouseClicked
@@ -365,6 +382,24 @@ public class CrudEstudiante extends javax.swing.JFrame {
         txtUsuario.setText(Usuario);
         txtPassword.setText(Password);
         txtNie.setText(Nie);
+        
+//        int seleccionadordevista = 0;
+//        for(var iterar : valueMember){
+//        if(IdPersona.equals(iterar)){
+//            cbPersonas.setSelectedIndex(seleccionadordevista);
+//        }
+//        seleccionadordevista+=1;
+//        }
+        int seleccionadordevista = 0;
+        for (var it: valueMember){
+         
+            if(IdPersona.equals(it)){
+            cbPersonas.setSelectedIndex(seleccionadordevista);
+        }
+            seleccionadordevista += 1;
+        }
+            
+        
 
     }//GEN-LAST:event_tb_mostarestudianteMouseClicked
 
@@ -377,11 +412,15 @@ public class CrudEstudiante extends javax.swing.JFrame {
     }//GEN-LAST:event_cbPersonasActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        txtIdEstudiante.setText(null);
+        try {
+           txtIdEstudiante.setText(null);
         txtMatricula.setText(null);
         txtUsuario.setText(null);
         txtPassword.setText(null);
-        txtNie.setText(null);
+        txtNie.setText(null); 
+        } catch (Exception e) {
+        }
+        
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
